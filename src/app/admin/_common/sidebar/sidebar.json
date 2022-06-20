@@ -1,0 +1,16 @@
+{
+  "navitems": [
+    {
+      "linkText": "Dashboard",
+      "parentLink": "/admin/dashboard",
+      "menu": false,
+      "submenu": []
+    },
+    {
+      "linkText": "Counter Booking",
+      "parentLink": "/admin/counter-booking",
+      "menu": false,
+      "submenu": []
+    }
+  ]
+}
