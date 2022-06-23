@@ -19,6 +19,24 @@ body {
   font-family: "Roboto", sans-serif;
 }
 $modifier: 0;
+@while $modifier < 10 {
+  .b-#{$modifier} {
+    border: $modifier * 1px solid $secondary-color !important;
+  }
+  .bt-#{$modifier} {
+    border-top: $modifier * 1px solid $secondary-color !important;
+  }
+  .br-#{$modifier} {
+    border-right: $modifier * 1px solid $secondary-color !important;
+  }
+  .bb-#{$modifier} {
+    border-bottom: $modifier * 1px solid $secondary-color !important;
+  }
+  .bl-#{$modifier} {
+    border-left: $modifier * 1px solid $secondary-color !important;
+  }
+}
+$modifier: 0;
 @while $modifier < 101 {
   .w-#{$modifier} {
     width: $modifier * 1% !important;

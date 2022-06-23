@@ -13,7 +13,6 @@ import { LabelModule } from "@progress/kendo-angular-label";
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationChartComponent } from './component/reservation-chart/reservation-chart.component';
 import { PnrSearchComponent } from './component/pnr-search/pnr-search.component';
@@ -36,7 +35,6 @@ import { ReportsComponent } from './component/reports/reports.component';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
     //Kendo
     InputsModule,
     IconsModule,
