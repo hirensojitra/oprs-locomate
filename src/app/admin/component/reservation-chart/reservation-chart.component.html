@@ -1,0 +1,70 @@
+<div class="page-header">
+  <h2>Reservation Chart</h2>
+</div>
+<div class="main-content">
+  <div class="container-fluid">
+    <h2 class="title">Search Criteria</h2>
+    <form class="k-form" [formGroup]="searchForm">
+      <div class="row">
+        <div class="col-sm-3">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label [for]="journeyDate" text="Journey Date"></kendo-label>
+              <kendo-datepicker formControlName="journeyDate" #journeyDate placeholder=""></kendo-datepicker>
+              <kendo-formerror>Journey Date is required</kendo-formerror>
+            </kendo-formfield>
+          </fieldset>
+        </div>
+        <div class="col-sm-3">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label [for]="journeyTime" text="Journey Time"></kendo-label>
+              <kendo-timepicker formControlName="journeyTime" #journeyTime placeholder=""></kendo-timepicker>
+              <kendo-formerror>Journey Time is required</kendo-formerror>
+            </kendo-formfield>
+          </fieldset>
+        </div>
+        <div class="col-sm-3">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label [for]="sourceStation" text="Source Station"></kendo-label>
+              <input kendoTextBox formControlName="sourceStation" #sourceStation placeholder="">
+              <kendo-formerror>Source Station is required</kendo-formerror>
+            </kendo-formfield>
+          </fieldset>
+        </div>
+        <div class="col-sm-3">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label [for]="destinationStation" text="Destination Station"></kendo-label>
+              <input kendoTextBox formControlName="destinationStation" #destinationStation placeholder="">
+              <kendo-formerror>Destination Station is required</kendo-formerror>
+            </kendo-formfield>
+          </fieldset>
+        </div>
+        <div class="col-sm-3">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label [for]="routeName" text="Route Name"></kendo-label>
+              <input kendoTextBox formControlName="routeName" #routeName placeholder="">
+              <kendo-formerror>Route Name is required</kendo-formerror>
+            </kendo-formfield>
+          </fieldset>
+        </div>
+        <div class="col-sm-3">
+          <fieldset class="k-form-fieldset">
+            <kendo-formfield>
+              <kendo-label [for]="serviceTripCode" text="Service/Trip Code"></kendo-label>
+              <input kendoTextBox formControlName="serviceTripCode" #serviceTripCode placeholder="">
+              <kendo-formerror>Service/Trip Code is required</kendo-formerror>
+            </kendo-formfield>
+          </fieldset>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-40">
+        <button class="btn primary mr-10" (click)="submitForm()">Search</button>
+        <button class="btn" (click)="clearForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

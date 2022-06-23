@@ -1,2 +1,37 @@
-<img src="assets/img/svg/locomate.svg" alt="">
-<a routerLink="/auth/">Authentication</a>
+<div class="header">
+  <div class="left-control">
+    <button routerLink="/admin/" class="flat">
+      <img src="assets/img/svg/locomate.svg" alt="">
+    </button>
+    <button class="menu-btn" (click)="toggleMenu()"
+      [ngClass]="{'open-menu':!getSideBarState(),'close-menu':getSideBarState()}"><span></span></button>
+  </div>
+  <div class="right-control">
+    <div class="client-logo"></div>
+    <div class="control">
+      <!-- Search Box -->
+      <form class="k-form w-296-px" [formGroup]="searchForm">
+        <fieldset class="k-form-fieldset input-suffix mb-0">
+          <kendo-formfield>
+            <input formControlName="searchInput" kendoTextBox #searchInput placeholder="Search.." />
+            <button class="flat" (click)="submitForm()"><img src="./assets/img/svg/common/search.svg" alt=""></button>
+          </kendo-formfield>
+        </fieldset>
+      </form>
+      <!-- Notification Icon -->
+      <button class="flat ml-35 mr-25 p-5"> <img src="./assets/img/svg/common/bell.svg" alt=""></button>
+      <div class="dropdown">
+        <button class="flat toggle-menu" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" (click)="false">
+          <img src="./assets/img/png/profile.png" alt="">
+          Atul Patel <i class="icon-down"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#" (click)="false"><i class="mr-10 icon-person"></i>Profile</a>
+          <a class="dropdown-item" href="#" (click)="false"><i class="mr-10 icon-setting"></i>Setting</a>
+          <a class="dropdown-item" href="#" (click)="false"><i class="mr-10 icon-off"></i>Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

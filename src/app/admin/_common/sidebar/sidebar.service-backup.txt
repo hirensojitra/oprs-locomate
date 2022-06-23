@@ -1,0 +1,197 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SidebarService {
+  toggled = false;
+  _hasBackgroundImage = false;
+  menus = [
+    // {
+    //   title: 'general',
+    //   type: 'header'
+    // },
+    {
+      title: 'Dashboard',
+      icon: 'fa icon-dashboard',
+      active: true,
+      type: 'simple',
+      link: '/admin/dashboard'
+    },
+    {
+      title: 'Counter Booking',
+      icon: 'fa icon-mobile',
+      active: false,
+      type: 'dropdown',
+      submenus: [
+        {
+          title: 'Current Booking',
+          link: '/admin/counter-booking/current-booking'
+        },
+        {
+          title: 'Advance Booking',
+          link: '/admin/counter-booking/advance-booking'
+        },
+        {
+          title: 'Reservation Chart'
+        },
+        {
+          title: 'PNR Search'
+        },
+        {
+          title: 'Service List'
+        },
+        {
+          title: 'Reports'
+        }
+      ]
+    },
+    {
+      title: 'Route Management',
+      icon: 'fa icon-path',
+      active: false,
+      type: 'dropdown',
+      badge: {
+        text: '3',
+        class: 'badge-danger'
+      },
+      submenus: [
+        {
+          title: 'Products',
+        },
+        {
+          title: 'Orders'
+        },
+        {
+          title: 'Credit cart'
+        }
+      ]
+    },
+    {
+      title: 'Vehicle Management',
+      icon: 'fa icon-bus',
+      active: false,
+      type: 'dropdown',
+      submenus: [
+        {
+          title: 'General',
+        },
+        {
+          title: 'Panels'
+        },
+        {
+          title: 'Tables'
+        },
+        {
+          title: 'Icons'
+        },
+        {
+          title: 'Forms'
+        }
+      ]
+    },
+    {
+      title: 'Service Management',
+      icon: 'fa icon-setting',
+      active: false,
+      type: 'dropdown',
+      submenus: [
+        {
+          title: 'Pie chart',
+        },
+        {
+          title: 'Line chart'
+        },
+        {
+          title: 'Bar chart'
+        },
+        {
+          title: 'Histogram'
+        }
+      ]
+    },
+    {
+      title: 'Agency Management',
+      icon: 'fa icon-agency',
+      active: false,
+      type: 'dropdown',
+      submenus: [
+        {
+          title: 'Google maps',
+        },
+        {
+          title: 'Open street map'
+        }
+      ]
+    },
+    // {
+    //   title: 'Extra',
+    //   type: 'header'
+    // },
+    {
+      title: 'User Management',
+      icon: 'fa icon-group',
+      active: false,
+      type: 'simple',
+      badge: {
+        text: 'Beta',
+        class: 'badge-primary'
+      },
+    },
+    {
+      title: 'Masters',
+      icon: 'fa icon-crown',
+      active: false,
+      type: 'simple'
+    },
+    {
+      title: 'Reservation Chart',
+      icon: 'fa icon-pie-chart',
+      active: false,
+      type: 'simple'
+    },
+    {
+      title: 'PNR Search',
+      icon: 'fa icon-search',
+      active: false,
+      type: 'simple'
+    },
+    {
+      title: 'Service List',
+      icon: 'fa icon-list',
+      active: false,
+      type: 'simple'
+    },
+    {
+      title: 'Reports',
+      icon: 'fa icon-chart',
+      active: false,
+      type: 'simple'
+    }
+  ];
+  constructor() { }
+
+  toggle() {
+    this.toggled = !this.toggled;
+  }
+
+  getSidebarState() {
+    return this.toggled;
+  }
+
+  setSidebarState(state: boolean) {
+    this.toggled = state;
+  }
+
+  getMenuList() {
+    return this.menus;
+  }
+
+  get hasBackgroundImage() {
+    return this._hasBackgroundImage;
+  }
+
+  set hasBackgroundImage(hasBackgroundImage) {
+    this._hasBackgroundImage = hasBackgroundImage;
+  }
+}

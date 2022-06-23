@@ -1,23 +1,62 @@
 import { Component, OnInit } from '@angular/core';
-import data from "./sidebar.json";
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { SidebarService } from './sidebar.service';
+// import { MenusService } from './menus.service';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  animations: [
+    trigger('slide', [
+      state('up', style({ height: 0 })),
+      state('down', style({ height: '*' })),
+      transition('up <=> down', animate(200))
+    ])
+  ]
 })
 export class SidebarComponent implements OnInit {
-  result: any = [];
-  constructor() {
-    for (let key in data.navitems) {
-      if (data.navitems.hasOwnProperty(key)) {
-        this.result.push(data.navitems[key]);
-      }
+  menus: any = [];
+  faCoffee = faTachometerAlt;
+  constructor(public sidebarservice: SidebarService) {
+    this.menus = sidebarservice.getMenuList();
+  }
+
+  ngOnInit() {
+  }
+
+  getSideBarState() {
+    return this.sidebarservice.getSidebarState();
+  }
+  public toggleMenu(){
+    this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
+    return false;
+  }
+  toggle(currentMenu: any) {
+    if (currentMenu.type === 'dropdown') {
+      this.menus.forEach((element: any) => {
+        if (element === currentMenu) {
+          currentMenu.active = !currentMenu.active;
+        } else {
+          element.active = false;
+        }
+      });
     }
   }
-  ngOnInit(): void {
+
+  getState(currentMenu: any) {
+
+    if (currentMenu.active) {
+      return 'down';
+    } else {
+      return 'up';
+    }
   }
-  ddToggle(i: any) {
-    this.result[i].menu = !this.result[i].menu;
-    console.log(this.result[i].menu);
+
+  hasBackgroundImage() {
+    return this.sidebarservice.hasBackgroundImage;
   }
+
 }

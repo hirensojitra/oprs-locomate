@@ -1,0 +1,74 @@
+@import "./../app.theme.scss";
+.main-container {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    .sidebar {
+      width: 317px;
+      display: block;
+      transition: all 0.5s;
+      overflow: hidden;
+    }
+    .content {
+      width: calc(100% - 317px);
+      display: block;
+      transition: all 0.5s;
+    }
+    &.close {
+      .sidebar {
+        width: 0;
+      }
+      .content {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.page-wrapper {
+  height: calc(100vh - 70px);
+  .page-content {
+    display: inline-block;
+    width: 100%;
+    padding-top: 20px;
+    transition: padding-left 0.3s ease;
+    padding: 15px;
+    background: $secondary-color;
+    height: 100%;
+    @media screen and (min-width: 768px) {
+      padding-left: 332px;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 998;
+      background: #000;
+      opacity: 0.5;
+      display: none;
+      &.show {
+        @media screen and (max-width: 768px) {
+          display: block;
+        }
+      }
+    }
+  }
+  .sidebar {
+    left: 0px;
+  }
+  &.toggled {
+    .page-content {
+      padding-left: 15px;
+    }
+  }
+  .attribution {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    margin: 5px;
+    letter-spacing: 1px;
+  }
+}

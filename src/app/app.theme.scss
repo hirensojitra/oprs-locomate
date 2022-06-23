@@ -1,0 +1,46 @@
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$primary-font-color: var(--primary-font-color);
+$secondary-font-color: var(--secondary-font-color);
+$primary-button: var(--primary-button);
+$secondary-button: var(--secondary-button);
+$primary-bacground: var(--primary-background);
+$secondary-bacground: var(--secondary-background);
+
+::ng-deep .default-theme {
+  --primary-font-color: #333333;
+  --secondary-font-color: #878a99;
+  --primary-button: #33ccff;
+  --secondary-button: #33ccff;
+  --primary-color: #33ccff;
+  --secondary-color: #eef1f2;
+}
+
+// Button Theme
+@mixin primary-button {
+  background: #{$primary-color};
+  padding: 10.5px 30px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid #{$primary-color};
+  &:hover,&:focus,&:active {
+    outline: none;
+    box-shadow: 0px 0px 3px #{$primary-font-color};
+  }
+}
+@mixin secondary-button {
+  background: #fff;
+  padding: 10.5px 30px;
+  border-radius: 3px;
+  color: #{$primary-color};
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid #{$primary-color};
+  &:hover,&:focus,&:active {
+    outline: none;
+    color: #{$primary-color};
+    box-shadow: 0px 0px 3px #{$primary-font-color};
+  }
+}

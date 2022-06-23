@@ -1,0 +1,23 @@
+@import "./../../app.theme.scss";
+.page-header {
+  display: flex;
+  h2 {
+    font-size: 14px;
+    color: $primary-font-color;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 20px;
+  }
+}
+.main-content {
+  height: calc(100% - 30px);
+  width: 100%;
+  background: #ffffff;
+  padding: 15px 0;
+  h2.title{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    margin-bottom: 19px;
+  }
+}
