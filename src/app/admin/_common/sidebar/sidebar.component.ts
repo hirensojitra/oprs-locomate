@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 import { SidebarService } from './sidebar.service';
-// import { MenusService } from './menus.service';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,24 +16,22 @@ import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
     trigger('slide', [
       state('up', style({ height: 0 })),
       state('down', style({ height: '*' })),
-      transition('up <=> down', animate(200))
-    ])
-  ]
+      transition('up <=> down', animate(200)),
+    ]),
+  ],
 })
 export class SidebarComponent implements OnInit {
   menus: any = [];
-  faCoffee = faTachometerAlt;
   constructor(public sidebarservice: SidebarService) {
     this.menus = sidebarservice.getMenuList();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getSideBarState() {
     return this.sidebarservice.getSidebarState();
   }
-  public toggleMenu(){
+  public toggleMenu() {
     this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
     return false;
   }
@@ -47,7 +48,6 @@ export class SidebarComponent implements OnInit {
   }
 
   getState(currentMenu: any) {
-
     if (currentMenu.active) {
       return 'down';
     } else {
@@ -58,5 +58,4 @@ export class SidebarComponent implements OnInit {
   hasBackgroundImage() {
     return this.sidebarservice.hasBackgroundImage;
   }
-
 }
