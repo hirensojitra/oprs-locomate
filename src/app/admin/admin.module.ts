@@ -12,12 +12,15 @@ import { IconsModule } from '@progress/kendo-angular-icons';
 import { LabelModule } from "@progress/kendo-angular-label";
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
+import { GridModule } from "@progress/kendo-angular-grid";
+import { DialogsModule } from "@progress/kendo-angular-dialog";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationChartComponent } from './component/reservation-chart/reservation-chart.component';
 import { PnrSearchComponent } from './component/pnr-search/pnr-search.component';
 import { ServiceListComponent } from './component/service-list/service-list.component';
 import { ReportsComponent } from './component/reports/reports.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ReportsComponent } from './component/reports/reports.component';
     IconsModule,
     LabelModule,
     ButtonsModule,
-    DateInputsModule
+    DateInputsModule,
+    GridModule,
+    DialogsModule,
+    DropDownsModule
   ]
 })
 export class AdminModule { }

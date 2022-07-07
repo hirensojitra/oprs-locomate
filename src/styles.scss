@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+// styles.scss
+
 @import "./app/app.theme.scss";
 
+@import "./assets/theme/kendo-theme-default/dist/all.scss";
 // Bootstrap Custom Starts here
 .dropdown-item.active,
 .dropdown-item:active {
@@ -18,83 +20,84 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
-$modifier: 0;
-@while $modifier < 10 {
-  .b-#{$modifier} {
-    border: $modifier * 1px solid $secondary-color !important;
+$border: 0;
+@while $border < 10 {
+  .b-#{$border} {
+    border: $border * 1px solid $secondary-color !important;
   }
-  .bt-#{$modifier} {
-    border-top: $modifier * 1px solid $secondary-color !important;
+  .bt-#{$border} {
+    border-top: $border * 1px solid $secondary-color !important;
   }
-  .br-#{$modifier} {
-    border-right: $modifier * 1px solid $secondary-color !important;
+  .br-#{$border} {
+    border-right: $border * 1px solid $secondary-color !important;
   }
-  .bb-#{$modifier} {
-    border-bottom: $modifier * 1px solid $secondary-color !important;
+  .bb-#{$border} {
+    border-bottom: $border * 1px solid $secondary-color !important;
   }
-  .bl-#{$modifier} {
-    border-left: $modifier * 1px solid $secondary-color !important;
+  .bl-#{$border} {
+    border-left: $border * 1px solid $secondary-color !important;
   }
+  $border: $border + 1;
 }
-$modifier: 0;
-@while $modifier < 101 {
-  .w-#{$modifier} {
-    width: $modifier * 1% !important;
+$n: 0;
+@while $n < 101 {
+  .w-#{$n} {
+    width: $n * 1% !important;
   }
-  .h-#{$modifier} {
-    height: $modifier * 1% !important;
+  .h-#{$n} {
+    height: $n * 1% !important;
   }
-  .m-#{$modifier} {
-    margin: $modifier * 1px !important;
+  .m-#{$n} {
+    margin: $n * 1px !important;
   }
-  .mt-#{$modifier} {
-    margin-top: $modifier * 1px !important;
+  .mt-#{$n} {
+    margin-top: $n * 1px !important;
   }
-  .mr-#{$modifier} {
-    margin-right: $modifier * 1px !important;
+  .mr-#{$n} {
+    margin-right: $n * 1px !important;
   }
-  .mb-#{$modifier} {
-    margin-bottom: $modifier * 1px !important;
+  .mb-#{$n} {
+    margin-bottom: $n * 1px !important;
   }
-  .ml-#{$modifier} {
-    margin-left: $modifier * 1px !important;
+  .ml-#{$n} {
+    margin-left: $n * 1px !important;
   }
-  .mlr-#{$modifier},
-  .mrl-#{$modifier} {
-    margin-left: $modifier * 1px !important;
-    margin-right: $modifier * 1px !important;
+  .mlr-#{$n},
+  .mrl-#{$n} {
+    margin-left: $n * 1px !important;
+    margin-right: $n * 1px !important;
   }
-  .mtb-#{$modifier},
-  .mbt-#{$modifier} {
-    margin-top: $modifier * 1px !important;
-    margin-bottom: $modifier * 1px !important;
+  .mtb-#{$n},
+  .mbt-#{$n} {
+    margin-top: $n * 1px !important;
+    margin-bottom: $n * 1px !important;
   }
-  .p-#{$modifier} {
-    padding: $modifier * 1px !important;
+  .p-#{$n} {
+    padding: $n * 1px !important;
   }
-  .pt-#{$modifier} {
-    padding-top: $modifier * 1px !important;
+  .pt-#{$n} {
+    padding-top: $n * 1px !important;
   }
-  .pr-#{$modifier} {
-    padding-right: $modifier * 1px !important;
+  .pr-#{$n} {
+    padding-right: $n * 1px !important;
   }
-  .pb-#{$modifier} {
-    padding-bottom: $modifier * 1px !important;
+  .pb-#{$n} {
+    padding-bottom: $n * 1px !important;
   }
-  .pl-#{$modifier} {
-    padding-left: $modifier * 1px !important;
+  .pl-#{$n} {
+    padding-left: $n * 1px !important;
   }
-  .plr-#{$modifier},
-  .prl-#{$modifier} {
-    padding-left: $modifier * 1px !important;
-    padding-right: $modifier * 1px !important;
+  .plr-#{$n},
+  .prl-#{$n} {
+    padding-left: $n * 1px !important;
+    padding-right: $n * 1px !important;
   }
-  .mtb-#{$modifier},
-  .mbt-#{$modifier} {
-    padding-top: $modifier * 1px !important;
-    padding-bottom: $modifier * 1px !important;
+  .mtb-#{$n},
+  .mbt-#{$n} {
+    padding-top: $n * 1px !important;
+    padding-bottom: $n * 1px !important;
   }
-  $modifier: $modifier + 1;
+  $n: $n + 1;
 }
 $modifier: 0;
 @while $modifier < 101 {
@@ -110,7 +113,9 @@ $modifier: 0;
   }
   $modifier: $modifier + 1;
 }
-
+.no-warp {
+  white-space: nowrap;
+}
 button {
   &.btn {
     @include secondary-button;
@@ -127,23 +132,79 @@ button {
   }
   cursor: pointer;
 }
+// Dropdown Starts
+.k-dropdown,
+.k-dropdowntree {
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  background: #ffffff;
+  .k-input {
+    height: 40px;
+    color: #{$primary-font-color};
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+.k-list__item.k-state-selected, .k-list .k-state-selected.k-item, .k-state-selected.k-list-optionlabel
+// Dropdown Ends
+// Radio Starts
+::ng-deep .k-radio {
+  border-color: $primary;
+}
+// Radio Ends
+// Checkbox Starts
+.k-checkbox {
+  border: 1px solid $primary-font-color;
+}
+.k-checkbox:checked,
+.k-checkbox.k-checked {
+  border-color: $primary-color;
+  color: white;
+  background-color: $primary-color;
+}
+.k-checkbox:indeterminate,
+.k-checkbox.k-state-indeterminate,
+.k-checkbox.k-indeterminate {
+  border-color: $primary-font-color;
+  color: $primary-color;
+  background-color: #ffffff;
+}
+.k-checkbox:focus {
+  box-shadow: 0 0 0 2px + #{$primary-color-hover};
+}
+// Checkbox Ends
 .k-form {
-  .k-form-fieldset {
-    margin-top: 0;
-    margin-bottom: 10px;
-    kendo-label {
-      label {
-        font-size: 14px;
-        font-weight: 500;
-      }
+  kendo-label {
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      padding-bottom: 6px;
     }
-    .k-textbox {
+  }
+  .k-form-fieldset {
+    .k-textbox,
+    .k-textarea,
+    .k-autocomplete,
+    .k-combobox,
+    .k-dropdown,
+    .k-dropdowntree,
+    .k-multiselect,
+    .k-datepicker,
+    .k-datetimepicker,
+    .k-timepicker,
+    .k-numerictextbox,
+    .k-maskedtextbox,
+    .k-textbox-container,
+    .k-floating-label-container {
       border: 1px solid #bdbdbd;
       border-radius: 5px;
       height: 40px;
-      color: #{primary-font-color};
+      color: #{$primary-font-color};
       font-size: 14px;
       font-weight: normal;
+    }
+    .k-textarea{
+      height: auto;
     }
     kendo-datepicker,
     kendo-timepicker {
@@ -152,7 +213,7 @@ button {
       .k-picker-wrap {
         .k-input {
           height: 40px;
-          color: #{primary-font-color};
+          color: #{$primary-font-color};
           font-size: 14px;
           font-weight: normal;
         }
@@ -183,3 +244,156 @@ button {
     }
   }
 }
+// kendo-grid Starts here
+.k-grid tr {
+  &.k-alt {
+    background: #ffffff;
+  }
+  td {
+    border-bottom: 1px solid $secondary-color;
+  }
+  &:last-child {
+    td {
+      border-bottom: 0;
+    }
+  }
+}
+.k-grid-header .k-with-icon,
+.k-grid-header .k-filterable {
+}
+.k-grid-header-wrap {
+  background: $secondary-color;
+  .k-header {
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 500;
+    .k-column-title {
+      color: $primary-font-color;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      white-space: normal;
+    }
+  }
+}
+.k-grid-pager {
+  background: #ffffff;
+  kendo-pager-prev-buttons {
+    border: 1px solid #eef1f2;
+    border-right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    .k-link {
+      color: $primary-font-color;
+      font-weight: 500;
+      font-size: 14px;
+      border-right: 1px solid #eef1f2;
+      &:last-child {
+        border: 0;
+      }
+      &.k-state-selected,
+      &.k-state-selected:hover {
+        background: $primary-color;
+        color: #ffffff;
+      }
+      &:hover {
+        background: #{$primary-color-hover};
+      }
+    }
+  }
+  .k-pager-numbers-wrap {
+    border: 1px solid #eef1f2;
+    border-right: 0;
+    border-left: 0;
+    .k-pager-numbers {
+      .k-link {
+        color: $primary-font-color;
+        font-weight: 500;
+        font-size: 14px;
+        border-right: 1px solid #eef1f2;
+        &.k-state-selected,
+        &.k-state-selected:hover {
+          background: $primary-color;
+          color: #ffffff;
+        }
+        &:hover {
+          background: #{$primary-color-hover};
+        }
+      }
+    }
+  }
+  kendo-pager-next-buttons {
+    border: 1px solid #eef1f2;
+    border-left: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    .k-link {
+      color: $primary-font-color;
+      font-weight: 500;
+      font-size: 14px;
+      border-right: 1px solid #eef1f2;
+      &:last-child {
+        border: 0;
+      }
+      &.k-state-selected,
+      &.k-state-selected:hover {
+        background: $primary-color;
+        color: #ffffff;
+      }
+      &:hover {
+        background: #{$primary-color-hover};
+      }
+    }
+  }
+}
+.normal-warp {
+  white-space: normal;
+  a {
+    color: $primary-color;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .btn {
+    height: 36px;
+    display: inline-block;
+    text-align: center;
+    padding: 0 10px;
+    vertical-align: middle;
+    white-space: normal;
+    line-height: 14px;
+    &:hover {
+      color: #fff;
+      background: $primary-color;
+      box-shadow: none;
+    }
+  }
+}
+// kendo-grid ends here
+// kendo-dialog starts here
+kendo-dialog {
+  .k-dialog {
+    border-radius: 5px;
+    max-width: calc(100% - 30px);
+    max-height: calc(100% - 30px);
+    .k-window-titlebar {
+      background: $secondary-color;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 9.5px 16px;
+      .k-dialog-title {
+        color: $primary-font-color;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .k-window-actions {
+        color: $primary-font-color;
+        .k-icon {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+// kendo-dialog ends here

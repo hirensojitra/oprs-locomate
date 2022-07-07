@@ -2,13 +2,13 @@
   <div class="sidebar-content">
     <div class="sidebar-search"></div>
     <div class="sidebar-menu">
-      <ul>
+      <ul routerLinkActive="active-group">
         <li *ngFor="let menu of menus"
           [ngClass]="{'active': menu.active , 'sidebar-dropdown':menu.type === 'dropdown' , 'header-menu':menu.type === 'header'}">
           <span *ngIf="menu.type === 'header'">{{menu.title}}</span>
           <!-- If manu has a link -->
           <ng-container *ngIf="menu.link">
-            <a *ngIf="menu.type !== 'header'" [routerLink]="menu.link" (click)='toggle(menu); toggleMenu()'>
+            <a *ngIf="menu.type !== 'header'" [routerLink]="menu.link" routerLinkActive="active" (click)='toggle(menu); toggleMenu();'>
               <i class="{{menu.icon}}"></i>
               <span>{{menu.title}}</span>
               <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
@@ -16,7 +16,7 @@
           </ng-container>
           <!-- If manu has not a link -->
           <ng-container *ngIf="!menu.link">
-            <a *ngIf="menu.type !== 'header'" href="#" (click)='toggle(menu);false'>
+            <a *ngIf="menu.type !== 'header'" href="#" (click)='toggle(menu); false'>
               <i class="{{menu.icon}}"></i>
               <span>{{menu.title}}</span>
               <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
@@ -25,7 +25,7 @@
           <div *ngIf="menu.type === 'dropdown'" class="sidebar-submenu" [@slide]="getState(menu)">
             <ul>
               <li *ngFor="let submenu of menu.submenus">
-                <a [routerLink]="submenu.link" *ngIf="submenu.link; else blankSubmenu" (click)="toggleMenu()">
+                <a [routerLink]="submenu.link" routerLinkActive="active" *ngIf="submenu.link; else blankSubmenu" (click)=" toggleMenu();">
                   {{submenu.title}}
                   <span *ngIf="submenu.badge" class="badge badge-pill"
                     [ngClass]="submenu.badge.class">{{submenu.badge.text}}</span>

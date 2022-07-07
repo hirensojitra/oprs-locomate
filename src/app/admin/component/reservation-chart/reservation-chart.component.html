@@ -2,69 +2,125 @@
   <h2>Reservation Chart</h2>
 </div>
 <div class="main-content">
-  <div class="container-fluid">
-    <h2 class="title">Search Criteria</h2>
-    <form class="k-form" [formGroup]="searchForm">
-      <div class="row">
-        <div class="col-sm-3">
-          <fieldset class="k-form-fieldset">
-            <kendo-formfield>
-              <kendo-label [for]="journeyDate" text="Journey Date"></kendo-label>
-              <kendo-datepicker formControlName="journeyDate" #journeyDate placeholder=""></kendo-datepicker>
-              <kendo-formerror>Journey Date is required</kendo-formerror>
-            </kendo-formfield>
-          </fieldset>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="k-form-fieldset">
-            <kendo-formfield>
-              <kendo-label [for]="journeyTime" text="Journey Time"></kendo-label>
-              <kendo-timepicker formControlName="journeyTime" #journeyTime placeholder=""></kendo-timepicker>
-              <kendo-formerror>Journey Time is required</kendo-formerror>
-            </kendo-formfield>
-          </fieldset>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="k-form-fieldset">
-            <kendo-formfield>
-              <kendo-label [for]="sourceStation" text="Source Station"></kendo-label>
-              <input kendoTextBox formControlName="sourceStation" #sourceStation placeholder="">
-              <kendo-formerror>Source Station is required</kendo-formerror>
-            </kendo-formfield>
-          </fieldset>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="k-form-fieldset">
-            <kendo-formfield>
-              <kendo-label [for]="destinationStation" text="Destination Station"></kendo-label>
-              <input kendoTextBox formControlName="destinationStation" #destinationStation placeholder="">
-              <kendo-formerror>Destination Station is required</kendo-formerror>
-            </kendo-formfield>
-          </fieldset>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="k-form-fieldset">
-            <kendo-formfield>
-              <kendo-label [for]="routeName" text="Route Name"></kendo-label>
-              <input kendoTextBox formControlName="routeName" #routeName placeholder="">
-              <kendo-formerror>Route Name is required</kendo-formerror>
-            </kendo-formfield>
-          </fieldset>
-        </div>
-        <div class="col-sm-3">
-          <fieldset class="k-form-fieldset">
-            <kendo-formfield>
-              <kendo-label [for]="serviceTripCode" text="Service/Trip Code"></kendo-label>
-              <input kendoTextBox formControlName="serviceTripCode" #serviceTripCode placeholder="">
-              <kendo-formerror>Service/Trip Code is required</kendo-formerror>
-            </kendo-formfield>
-          </fieldset>
+  <div class="container-fluid h-100 main">
+    <div class="form-container">
+      <div class="title">
+        <h2>Search Criteria</h2>
+      </div>
+      <form class="k-form bb-1" [formGroup]="searchForm">
+        <fieldset class="k-form-fieldset">
+          <div class="row">
+            <div class="col-sm-3">
+              <kendo-formfield>
+                <kendo-label [for]="journeyDate" text="Journey Date"></kendo-label>
+                <kendo-datepicker formControlName="journeyDate" #journeyDate placeholder=""></kendo-datepicker>
+                <kendo-formerror>Journey Date is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-sm-3">
+              <kendo-formfield>
+                <kendo-label [for]="journeyTime" text="Journey Time"></kendo-label>
+                <kendo-timepicker formControlName="journeyTime" #journeyTime placeholder=""></kendo-timepicker>
+                <kendo-formerror>Journey Time is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-sm-3">
+              <kendo-formfield>
+                <kendo-label [for]="sourceStation" text="Source Station"></kendo-label>
+                <input kendoTextBox formControlName="sourceStation" #sourceStation placeholder="">
+                <kendo-formerror>Source Station is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-sm-3">
+              <kendo-formfield>
+                <kendo-label [for]="destinationStation" text="Destination Station"></kendo-label>
+                <input kendoTextBox formControlName="destinationStation" #destinationStation placeholder="">
+                <kendo-formerror>Destination Station is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-sm-3">
+              <kendo-formfield>
+                <kendo-label [for]="routeName" text="Route Name"></kendo-label>
+                <input kendoTextBox formControlName="routeName" #routeName placeholder="">
+                <kendo-formerror>Route Name is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-sm-3">
+              <kendo-formfield>
+                <kendo-label [for]="serviceTripCode" text="Service/Trip Code"></kendo-label>
+                <input kendoTextBox formControlName="serviceTripCode" #serviceTripCode placeholder="">
+                <kendo-formerror>Service/Trip Code is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-40 mb-40 mb-35">
+            <button class="btn primary mr-10" (click)="submitForm()">Search</button>
+            <button class="btn" (click)="clearForm()">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="other-data-container">
+      <div class="title">
+        <h1>List of Services</h1>
+        <div class="control">
+          <button class="btn mr-10">Close</button>
+          <button class="btn primary" (click)="openeReservationHistory()">Reservation History</button>
         </div>
       </div>
-      <div class="d-flex justify-content-end mt-40 mb-35 bb-1">
-        <button class="btn primary mr-10" (click)="submitForm()">Search</button>
-        <button class="btn" (click)="clearForm()">Cancel</button>
+    </div>
+    <div class="grid-container">
+      <div class="grid-data">
+        <kendo-grid [kendoGridBinding]="gridView" [style.height.%]="100" [style.width.%]="100"
+          [pageSize]="gridState.take!" [skip]="gridState.skip!" [sort]="gridState.sort!" [pageable]="true"
+          [sortable]="true" [columnMenu]={filter:true,lock:true,stick:true} class="h-100 w-100">
+          <kendo-grid-column [width]="130" field="code" title="Code"></kendo-grid-column>
+          <kendo-grid-column [width]="130" field="route" title="Route"></kendo-grid-column>
+          <kendo-grid-column [width]="170" field="time" title="Departure Time at Passenger's Source">
+          </kendo-grid-column>
+          <kendo-grid-column [width]="150" field="sourceStation" title="Service Source station"></kendo-grid-column>
+          <kendo-grid-column [width]="152" field="destinationStation" title="Service Destination station">
+          </kendo-grid-column>
+          <kendo-grid-column [width]="119" field="vehicleType" title="Vehicle Type"></kendo-grid-column>
+          <kendo-grid-column [width]="119" field="serviceType" title="Service Type"></kendo-grid-column>
+          <kendo-grid-column [width]="89" field="seatType" title="Seat Type"></kendo-grid-column>
+          <kendo-grid-column [width]="112" field="vehicleNumber" title="Vehicle Number"></kendo-grid-column>
+          <kendo-grid-column [width]="92" field="depotName" title="Deport Name"></kendo-grid-column>
+          <kendo-grid-column field="action" title="Action" [width]="303" [columnMenu]="false">
+            <ng-template kendoGridCellTemplate let-dataItem>
+              <div class="normal-warp">
+                <button class="btn mr-10">View<br>Booking</button>
+                <button class="btn">Generate Reservation Chart</button>
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+        </kendo-grid>
       </div>
-    </form>
+    </div>
   </div>
 </div>
+<!-- Reservation History Dialog -->
+<kendo-dialog title="Reservation Chart History" *ngIf="openedReservationHistory"
+  (close)="closeReservationHistory('cancel')" [style.maxWidth.%]="100" [width]="1180">
+  <kendo-grid [kendoGridBinding]="gridViewHistory" [height]="300" [style.width.%]="100"
+    [pageSize]="gridStateHistory.take!" [skip]="gridStateHistory.skip!" [sort]="gridStateHistory.sort!"
+    [pageable]="true" [sortable]="true" [columnMenu]={filter:true,lock:true,stick:true} class="w-100">
+    <kendo-grid-column [width]="140" field="code" title="Service Code"></kendo-grid-column>
+    <kendo-grid-column [width]="180" field="route" title="Route"></kendo-grid-column>
+    <kendo-grid-column [width]="150" field="vehicleType" title="Vehicle Type"></kendo-grid-column>
+    <kendo-grid-column [width]="150" field="serviceType" title="Service Type"></kendo-grid-column>
+    <kendo-grid-column [width]="100" field="seatType" title="Seat Type"></kendo-grid-column>
+    <kendo-grid-column [width]="120" field="createdOn" title="Last Chart Created On"></kendo-grid-column>
+    <kendo-grid-column [width]="140" field="createdBy" title="Chart Created By"></kendo-grid-column>
+    <kendo-grid-column field="action" title="Action" [width]="120">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <div class="normal-warp">
+          <a href="#" (click)="false">Reprint Chart</a>
+        </div>
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+  <div class="text-right mt-30">
+    <button class="btn" (click)="closeReservationHistory('cancel')">Close</button>
+  </div>
+</kendo-dialog>

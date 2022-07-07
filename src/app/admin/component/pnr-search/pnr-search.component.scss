@@ -1,0 +1,34 @@
+@import "./../../../app.theme.scss";
+.ticket-info{
+    .info{
+        display: block;
+        .label{
+            display: inline-block;
+            vertical-align: top;
+            font-weight: 500;
+            font-size: 14px;
+            color: $primary-font-color;
+            width: 113px;
+        }
+        .data{
+            display: inline-block;
+            vertical-align: top;
+            font-size: 14px;
+            color: $primary-font-color;
+            width: calc(100% - 115px);
+            padding-left: 15px;
+            position: relative;
+            &:before{
+                content: ':';
+                position: absolute;
+                left: 7.5px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+::ng-deep .refund-form-dialog{
+    .k-window, .k-dialog{
+        width: 400px;
+    }
+}

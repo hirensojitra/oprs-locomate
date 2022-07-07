@@ -1,4 +1,6 @@
 $primary-color: var(--primary-color);
+$primary: var(--primary-color);
+$primary-color-hover: var(--primary-color-hover);
 $secondary-color: var(--secondary-color);
 $primary-font-color: var(--primary-font-color);
 $secondary-font-color: var(--secondary-font-color);
@@ -11,6 +13,7 @@ $secondary-bacground: var(--secondary-background);
   --primary-font-color: #333333;
   --secondary-font-color: #878a99;
   --primary-button: #33ccff;
+  --primary-color-hover: #33ccff1a;
   --secondary-button: #33ccff;
   --primary-color: #33ccff;
   --secondary-color: #eef1f2;
@@ -20,9 +23,10 @@ $secondary-bacground: var(--secondary-background);
 @mixin primary-button {
   background: #{$primary-color};
   padding: 10.5px 30px;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #fff;
   font-size: 14px;
+  font-weight: 500;
   line-height: 17px;
   border: 1px solid #{$primary-color};
   &:hover,&:focus,&:active {
@@ -36,6 +40,7 @@ $secondary-bacground: var(--secondary-background);
   border-radius: 3px;
   color: #{$primary-color};
   font-size: 14px;
+  font-weight: 500;
   line-height: 17px;
   border: 1px solid #{$primary-color};
   &:hover,&:focus,&:active {
@@ -44,3 +49,35 @@ $secondary-bacground: var(--secondary-background);
     box-shadow: 0px 0px 3px #{$primary-font-color};
   }
 }
+
+
+$border-radius: 2px;
+$primary: #23bde0;
+$secondary: #f6f6f6;
+$info: #3e80ed;
+$success: #5ec232;
+$warning: #fdce3e;
+$error: #d51923;
+$body-text: #424242;
+$body-bg: #ffffff;
+$headings-text: #272727;
+$subtle-text: #666666;
+$disabled-text: #8f8f8f;
+$component-text: #424242;
+$component-bg: #ffffff;
+$base-text: #424242;
+$base-bg: #fafafa;
+$hovered-text: #424242;
+$hovered-bg: #ececec;
+$selected-text: #ffffff;
+$selected-bg: #23bde0;
+$button-text: #424242;
+$button-bg: #f5f5f5;
+$link-text: #23bde0;
+$link-hover-text: #1d9fbc;
+$series-a: #23bde0;
+$series-b: #ffd246;
+$series-c: #78d237;
+$series-d: #28b4c8;
+$series-e: #2d73f5;
+$series-f: #aa46be;

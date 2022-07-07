@@ -6,11 +6,11 @@
     <button class="menu-btn" (click)="toggleMenu()"
       [ngClass]="{'open-menu':!getSideBarState(),'close-menu':getSideBarState()}"><span></span></button>
   </div>
-  <div class="right-control">
+  <div class="right-control w-100">
     <div class="client-logo"></div>
-    <div class="control">
+    <div class="control w-100">
       <!-- Search Box -->
-      <form class="k-form w-296-px" [formGroup]="searchForm">
+      <form class="k-form w-100" [formGroup]="searchForm">
         <fieldset class="k-form-fieldset input-suffix mb-0">
           <kendo-formfield>
             <input formControlName="searchInput" kendoTextBox #searchInput placeholder="Search.." />

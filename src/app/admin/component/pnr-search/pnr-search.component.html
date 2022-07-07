@@ -1,3 +1,264 @@
 <div class="page-header">
   <h2>PNR Search</h2>
 </div>
+<div class="main-content">
+  <div class="container-fluid h-100 main">
+    <div class="form-container">
+      <div class="title">
+        <h2>Search Criteria</h2>
+        <form class="k-form w-200-px" [formGroup]="searchPNR">
+          <fieldset class="k-form-fieldset input-suffix mb-0">
+            <kendo-formfield>
+              <input formControlName="searchInput" kendoTextBox #searchInput placeholder="PNR Search.." />
+              <button class="flat" (click)="submitForm()"><img src="./assets/img/svg/common/search.svg" alt=""></button>
+            </kendo-formfield>
+          </fieldset>
+        </form>
+      </div>
+      <form class="k-form bb-1" [formGroup]="searchForm">
+        <fieldset class="k-form-fieldset">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <kendo-formfield>
+                <kendo-label [for]="pnrTicket" text="PNR/Ticket Number"></kendo-label>
+                <input kendoTextBox formControlName="pnrTicket" #pnrTicket placeholder="">
+                <kendo-formerror>PNR/Ticket Number is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <kendo-formfield>
+                <kendo-label [for]="mobile" text="Mobile Number"></kendo-label>
+                <input kendoTextBox formControlName="mobile" #mobile placeholder="">
+                <kendo-formerror>Mobile Number is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-lg-6 col-sm-12 col-md-8 text-center">
+                  <p class="mt-15 mb-0"><b>OR</b></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-lg col-sm-6">
+                  <kendo-formfield>
+                    <kendo-label [for]="serviceTripCode" text="Service/Trip Code"></kendo-label>
+                    <input kendoTextBox formControlName="serviceTripCode" #serviceTripCode placeholder="">
+                    <kendo-formerror>Service/Trip Code is required</kendo-formerror>
+                  </kendo-formfield>
+                </div>
+                <div class="col-lg col-sm-6">
+                  <kendo-formfield>
+                    <kendo-label [for]="sourceStation" text="Source Station"></kendo-label>
+                    <input kendoTextBox formControlName="sourceStation" #sourceStation placeholder="">
+                    <kendo-formerror>Source Station is required</kendo-formerror>
+                  </kendo-formfield>
+                </div>
+                <div class="col-lg col-sm-6">
+                  <kendo-formfield>
+                    <kendo-label [for]="destinationStation" text="Destination Station"></kendo-label>
+                    <input kendoTextBox formControlName="destinationStation" #destinationStation placeholder="">
+                    <kendo-formerror>Destination Station is required</kendo-formerror>
+                  </kendo-formfield>
+                </div>
+                <div class="col-lg col-sm-6">
+                  <kendo-formfield>
+                    <kendo-label [for]="routeName" text="Route Name"></kendo-label>
+                    <input kendoTextBox formControlName="routeName" #routeName placeholder="">
+                    <kendo-formerror>Route Name is required</kendo-formerror>
+                  </kendo-formfield>
+                </div>
+                <div class="col-lg col-sm-6">
+                  <kendo-formfield>
+                    <kendo-label [for]="serviceDate" text="Service Date"></kendo-label>
+                    <kendo-datepicker formControlName="serviceDate" #serviceDate placeholder=""></kendo-datepicker>
+                    <kendo-formerror>Service Date is required</kendo-formerror>
+                  </kendo-formfield>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-40 mb-40 mb-35">
+            <button class="btn primary mr-10" (click)="submitForm()">Search</button>
+            <button class="btn" (click)="clearForm()">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="other-data-container">
+      <div class="title">
+        <h1>Ticket Information</h1>
+      </div>
+      <div class="ticket-info">
+        <div class="row">
+          <div class="col-xl-9">
+            <div class="row">
+              <div class="col-lg-4 col-sm-6">
+                <div class="info">
+                  <div class="label">Service/Trip Code</div>
+                  <div class="data">T12345</div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="info">
+                  <div class="label">Route Name</div>
+                  <div class="data">AHM - MUM Via Express Highway</div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="info">
+                  <div class="label">Seat Type</div>
+                  <div class="data">Seater</div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="info">
+                  <div class="label">Vehicle Type</div>
+                  <div class="data">Non - AC</div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="info">
+                  <div class="label">Service Type</div>
+                  <div class="data">Gurjar Nagari</div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="info">
+                  <div class="label">Vehicle Number</div>
+                  <div class="data">GJ 18 YY 1234</div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="info">
+                  <div class="label">Depot Name</div>
+                  <div class="data">Depot 1</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mb-20">
+        <div class="control">
+          <button class="btn mr-10">Close</button>
+          <button class="btn primary" (click)="openeRefund()">Refund</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-data">
+        <kendo-grid [kendoGridBinding]="gridView" [style.height.%]="100" [style.width.%]="100"
+          [pageSize]="gridState.take!" [skip]="gridState.skip!" [sort]="gridState.sort!" [pageable]="true"
+          [sortable]="true" [columnMenu]={filter:true,lock:true,stick:false} [selectable]="true">
+          <kendo-grid-checkbox-column [width]="45" [showSelectAll]="true" [columnMenu]="false" [sticky]="true">
+          </kendo-grid-checkbox-column>
+          <kendo-grid-column [width]="150" field="pnrTicket" title="PNR / Ticket Number"></kendo-grid-column>
+          <kendo-grid-column [width]="170" field="personName" title="Person Name"></kendo-grid-column>
+          <kendo-grid-column [width]="90" field="age" title="Age"></kendo-grid-column>
+          <kendo-grid-column [width]="90" field="gender" title="Gender"></kendo-grid-column>
+          <kendo-grid-column [width]="130" field="contactNumber" title="Contact Number"></kendo-grid-column>
+          <kendo-grid-column [width]="150" field="journeyDate" title="Journey Date & Time"></kendo-grid-column>
+          <kendo-grid-column [width]="115" field="boardingStation" title="Boarding Station"></kendo-grid-column>
+          <kendo-grid-column [width]="115" field="dropingStation" title="Dropping Station"></kendo-grid-column>
+          <kendo-grid-column [width]="90" field="fareCharges" title="Fare Charges"></kendo-grid-column>
+          <kendo-grid-column [width]="80" field="status" title="Status"></kendo-grid-column>
+          <kendo-grid-column field="action" title="Action" [width]="235" [columnMenu]="false" [sortable]="false"
+            [sticky]="true">
+            <ng-template kendoGridCellTemplate let-dataItem>
+              <div class="normal-warp">
+                <button class="btn mr-10">View<br>Ticket</button>
+                <button class="btn mr-10">Print<br>Ticket</button>
+                <button class="btn">Refund</button>
+              </div>
+            </ng-template>
+          </kendo-grid-column>
+        </kendo-grid>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Refund Form Dialog -->
+<kendo-dialog title="Refund" *ngIf="openedRefund" (close)="closeRefund('cancel')" [style.maxWidth.%]="100"
+  class="refund-form-dialog">
+  <form class="k-form" [formGroup]="refundForm">
+    <fieldset class="k-form-fieldset">
+      <kendo-formfield class="mb-25">
+        <kendo-label [for]="applyOn" text="Refund Apply On"></kendo-label>
+        <kendo-dropdownlist [data]="data" textField="text" valueField="value" #applyOn formControlName="applyOn"
+          [valuePrimitive]="true">
+        </kendo-dropdownlist>
+        <kendo-formerror>Refund Apply On is required</kendo-formerror>
+      </kendo-formfield>
+      <div class="radio-group" class="mb-25">
+        <kendo-label text="Refund Type"></kendo-label>
+        <div class="row pt-5">
+          <div class="col d-flex align-items-center">
+            <input type="radio" name="refundType" value="1" #policy formControlName="refundType" kendoRadioButton />
+            <label class="k-label pl-10" [for]="policy">As per refund policy</label>
+          </div>
+          <div class="col d-flex align-items-center">
+            <input type="radio" name="refundType" value="2" #manual formControlName="refundType" kendoRadioButton />
+            <label class="k-label pl-10" [for]="manual">Manual Refund</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <kendo-formfield class="mb-0">
+              <kendo-dropdownlist [data]="refundTypeData" textField="text" valueField="value" #applyValue
+                formControlName="refundTypeMode" [valuePrimitive]="true">
+              </kendo-dropdownlist>
+            </kendo-formfield>
+          </div>
+          <div class="col">
+            <kendo-formfield>
+              <input kendoTextBox formControlName="ammount" placeholder="">
+            </kendo-formfield>
+          </div>
+        </div>
+      </div>
+      <div class="radio-group" class="mb-25">
+        <kendo-label text="Payment Option"></kendo-label>
+        <div class="row pt-5">
+          <div class="col d-flex align-items-center">
+            <input type="radio" name="paymentType" value="1" #cash formControlName="paymentType" kendoRadioButton />
+            <label class="k-label pl-10" [for]="cash">Cash</label>
+          </div>
+          <div class="col d-flex align-items-center">
+            <input type="radio" name="paymentType" value="2" #digital formControlName="paymentType" kendoRadioButton />
+            <label class="k-label pl-10" [for]="digital">Digital</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <kendo-formfield>
+              <kendo-dropdownlist [data]="paymentTypeData" textField="text" valueField="value" #applyValue
+                formControlName="paymentTypeMode" [valuePrimitive]="true">
+              </kendo-dropdownlist>
+            </kendo-formfield>
+          </div>
+          <div class="col">
+            <kendo-formfield>
+              <input kendoTextBox formControlName="referenceNo" placeholder="Ref. No">
+            </kendo-formfield>
+          </div>
+        </div>
+      </div>
+      <kendo-formfield>
+        <kendo-label [for]="reasonType" text="Reason to Refund"></kendo-label>
+        <kendo-dropdownlist [data]="reasonTypeData" textField="text" valueField="value" #reasonType
+          formControlName="reasonType" [valuePrimitive]="true">
+        </kendo-dropdownlist>
+      </kendo-formfield>
+      <kendo-formfield>
+        <textarea kendoTextArea formControlName="reasonDescription" placeholder="Description" [rows]="4"></textarea>
+        <kendo-formerror>Description is required</kendo-formerror>
+      </kendo-formfield>
+
+    </fieldset>
+    <div class="d-flex justify-content-end mt-40">
+      <button class="btn mr-10">Cancel</button>
+      <button class="btn primary">Save</button></div>
+  </form>
+</kendo-dialog>

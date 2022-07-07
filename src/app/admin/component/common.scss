@@ -14,10 +14,48 @@
   width: 100%;
   background: #ffffff;
   padding: 15px 0;
-  h2.title{
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 17px;
-    margin-bottom: 19px;
+  overflow: auto;
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 22px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 17px;
+      margin-top: 7px;
+    }
+    .control {
+    }
+  }
+  .other-data-container {
+    padding-top: 25px;
+    .title {
+      padding-bottom: 22px;
+    }
+  }
+  .grid-container {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+    position: relative;
+    .grid-data {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 240px;
+    }
   }
 }

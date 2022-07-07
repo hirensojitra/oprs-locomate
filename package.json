@@ -2,12 +2,11 @@
   "name": "oprs-pbo-admin-locomate",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
+    "ng": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng",
+    "start": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "aot": "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng serve --aot"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -59,6 +58,6 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "^4.3.0"
+    "typescript": "^4.3.5"
   }
 }
